@@ -9,7 +9,8 @@ import store from "../redux/store";
 //import the actions
 import {
   createIncrementAction,
-  createDecrementAction
+  createDecrementAction,
+  createIncrementOddAction
 } from "../redux/count_actions";
 
 export default class Count extends Component {
@@ -26,6 +27,14 @@ export default class Count extends Component {
     store.dispatch(createDecrementAction(value * 1));
   };
 
+  //add
+  incrementIfOdd = () => {
+    //get the selected value
+    const { value } = this.selectNumber;
+    //dispatch an action to update the state value
+    store.dispatch(createIncrementOddAction(value * 1));
+  };
+
   render() {
     return (
       <div>
@@ -38,6 +47,7 @@ export default class Count extends Component {
         </select>
         &nbsp;
         <button onClick={this.increment}>+</button>&nbsp;
+        <button onClick={this.incrementIfOdd}>Add when sum is odd</button>&nbsp;
         <button onClick={this.decrement}>-</button>&nbsp;
       </div>
     );
