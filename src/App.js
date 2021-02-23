@@ -1,13 +1,13 @@
-import "./styles.css";
+import "./style.css";
 //import the Count component
-import Count from "./component/Count";
+import CountUI from "./component/CountUI";
 
 export default function App() {
   return (
     <div className="App">
       <h1>A counter practice for Redux</h1>
       {/* render the Count component */}
-      <Count />
+      <CountUI />
     </div>
   );
 }
